@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const { httpRegex, ruText, enText } = require('../utils/regex');
+const { httpRegex } = require('../utils/regex');
 
 const movieSchema = new mongoose.Schema({
   country: {
@@ -58,28 +58,28 @@ const movieSchema = new mongoose.Schema({
     required: true,
   },
   movieId: {
-    type: String,
+    type: Number,
     required: [true, 'Поле должно быть заполнено'],
   },
   nameRU: {
     type: String,
     required: [true, 'Поле должно быть заполнено'],
-    validate: {
-      validator(value) {
-        return ruText.test(value);
-      },
-      message: 'Название фильма должно быть на русском языке',
-    },
+    // validate: {
+    //   validator(value) {
+    //     return ruText.test(value);
+    //   },
+    //   message: 'Название фильма должно быть на русском языке',
+    // },
   },
   nameEN: {
     type: String,
     required: [true, 'Поле должно быть заполнено'],
-    validate: {
-      validator(value) {
-        return enText.test(value);
-      },
-      message: 'Название фильма должно быть на английском языке',
-    },
+    // validate: {
+    //   validator(value) {
+    //     return enText.test(value);
+    //   },
+    //   message: 'Название фильма должно быть на английском языке',
+    // },
   },
 });
 

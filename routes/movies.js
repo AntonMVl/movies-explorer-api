@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { celebrate, Joi } = require('celebrate');
 const { getMovies, createMovie, deleteMovie } = require('../controllers/movies');
-const { httpRegex, ruText, enText } = require('../utils/regex');
+const { httpRegex } = require('../utils/regex');
 
 router.get('/movies', getMovies);
 
@@ -16,8 +16,8 @@ router.post('/movies', celebrate({
     trailerLink: Joi.string().required().pattern(httpRegex),
     thumbnail: Joi.string().required().pattern(httpRegex),
     movieId: Joi.number().required(),
-    nameRU: Joi.string().required().pattern(ruText),
-    nameEN: Joi.string().required().pattern(enText),
+    nameRU: Joi.string().required(),
+    nameEN: Joi.string().required(),
   }),
 }), createMovie);
 
