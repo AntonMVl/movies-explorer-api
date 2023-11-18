@@ -1,0 +1,45 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "lint": "npx eslint .",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonMVl/movies-explorer-api.git"
+  },
+  "author": "AMorohin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonMVl/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/AntonMVl/movies-explorer-api#readme",
+  "devDependencies": {
+    "eslint": "^8.49.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
+    "celebrate": "^15.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-rate-limit": "^7.0.1",
+    "express-winston": "^4.2.0",
+    "helmet": "^7.0.0",
+    "http-status-codes": "^2.3.0",
+    "joi": "^17.10.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.2",
+    "save": "^2.9.0",
+    "validator": "^13.11.0",
+    "winston": "^3.10.0"
+  }
+}
