@@ -6,7 +6,6 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const BadRequestError = require('../errors/BadRequestError');
 const ConflictError = require('../errors/ConflictError');
-const NotFoundError = require('../errors/NotFoundError');
 const userModel = require('../models/user');
 
 module.exports.login = (req, res, next) => {
@@ -55,8 +54,8 @@ module.exports.updateUserData = (req, res, next) => {
     .catch((err) => {
       if (err instanceof mongoose.Error.ValidationError) {
         next(new BadRequestError(err.message));
-      } else if (err instanceof mongoose.Error.DocumentNotFoundError) {
-        next(new NotFoundError(`Пользователь по данному _id: ${req.user._id} не найден.`));
+      } else if (err.code === 11000) {
+        next(new ConflictError(`Пользователь с email: ${email} уже зарегистрирован`));
       } else {
         next(err);
       }
